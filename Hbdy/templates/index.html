@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Birthday Surprise!</title>
+</head>
+<body>
+    <div class="game-container">
+        <h1 id="message">Click the Balloon! 🎈</h1>
+        <div id="balloon" onclick="popBalloon()"></div>
+        <div id="confetti-container"></div>
+    </div>
+
+    <script>
+        function popBalloon() {
+            const balloon = document.getElementById('balloon');
+            const message = document.getElementById('message');
+            balloon.style.display = 'none';
+            message.innerText = "🎉 HAPPY BIRTHDAY POONAM DI! 🎂";
+            message.classList.add('zoom');
+            for(let i=0; i<50; i++) { createConfetti(); }
+        }
+
+        function createConfetti() {
+            const c = document.createElement('div');
+            c.classList.add('confetti');
+            c.style.left = Math.random() * 100 + 'vw';
+            c.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 50%)`;
+            c.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.getElementById('confetti-container').appendChild(c);
+        }
+    </script>
+</body>
+</html>

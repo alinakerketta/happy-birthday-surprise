@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+}
+
+#balloon {
+    width: 100px;
+    height: 120px;
+    background-color: red;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: relative;
+    cursor: pointer;
+    margin: 20px auto;
+}
+
+#balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 45px;
+    width: 10px;
+    height: 30px;
+    background-color: #ccc;
+}
+
+#message {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.zoom {
+    animation: zoom 1s ease-in-out;
+}
+
+@keyframes zoom {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
